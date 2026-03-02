@@ -89,36 +89,36 @@ function SelectScrollDownButton({
   )
 }
 
-export function SelectTriggers({
-  className,
-  children,
-  ...props
-}: React.ComponentProps<typeof SelectPrimitive.Trigger>) {
-  return (
-    <>
-      <Text
-        variant="text-label"
-        className="text-accent-title transition-colors group-focus-within:text-green-100"
-      >
-        Categoria
-      </Text>
-      <SelectPrimitive.Trigger
-        className={cn(
-          `border-border bg-background-primary placeholder:text-text-secondary focus:ring-primary data-[placeholder]:text-text-secondary inline-flex h-10 w-full items-center justify-between rounded-md border px-3 py-2 text-sm transition-colors focus:ring-2 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50`,
-          className,
-        )}
-        {...props}
-      >
-        {children}
-        <SelectPrimitive.Icon asChild>
-          <ButtonIcon
-            icon={ChevronDownIcon}
-            variant="primary"
-            size="md"
-            className="h-[20px] w-[20px]"
-          />
-        </SelectPrimitive.Icon>
-      </SelectPrimitive.Trigger>
-    </>
-  )
-}
+// export function SelectTriggers({
+//   className,
+//   children,
+//   ...props
+// }: React.ComponentProps<typeof SelectPrimitive.Trigger>) {
+//   return (
+//     <>
+//       <Text
+//         variant="text-label"
+//         className="text-accent-title transition-colors group-focus-within:text-green-100"
+//       >
+//         Categoria
+//       </Text>
+//       <SelectPrimitive.Trigger
+//         className={cn(
+//           `border-border bg-background-primary placeholder:text-text-secondary focus:ring-primary data-[placeholder]:text-text-secondary inline-flex h-10 w-full items-center justify-between rounded-md border px-3 py-2 text-sm transition-colors focus:ring-2 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50`,
+//           className,
+//         )}
+//         {...props}
+//       >
+//         {children}
+//         <SelectPrimitive.Icon asChild>
+//           <ButtonIcon
+//             icon={ChevronDownIcon}
+//             variant="primary"
+//             size="md"
+//             className="h-[20px] w-[20px]"
+//           />
+//         </SelectPrimitive.Icon>
+//       </SelectPrimitive.Trigger>
+//     </>
+//   )
+// }

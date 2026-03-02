@@ -4,9 +4,9 @@ import MainContent from "@/components/ui/main-content"
 
 export default function LayoutMain() {
   const { pathname } = useLocation()
-  if (pathname.includes("refund-details")) {
-    console.log("O path contém 'refund-details'")
-  }
+  // if (pathname.includes("refund-details")) {
+  //   console.log("O path contém 'refund-details'")
+  // }
 
   return (
     <>

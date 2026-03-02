@@ -5,6 +5,7 @@ import Text, { textVariants } from "./text"
 // import FileImageIcon from "../assets/icons/image.svg?react";
 import CloudArrowUp from "../../assets/icons/cloud-arrow-up.svg?react"
 import { useWatch } from "react-hook-form"
+import Skeleton from "./skeleton"
 
 export const inputSingleFileVariants = tv({
   base: `
@@ -47,6 +48,7 @@ interface InputSingleFileProps
   allowedExtensions: string[]
   maxFileSizeInMB: number
   label?: ReactNode
+  loading?: boolean
 }
 
 export default function InputSingleFile({
@@ -55,8 +57,8 @@ export default function InputSingleFile({
   form,
   allowedExtensions,
   maxFileSizeInMB,
-
   label,
+  loading,
   ...props
 }: InputSingleFileProps) {
   const formValues = useWatch({ control: form.control })
@@ -100,25 +102,35 @@ export default function InputSingleFile({
           )}
 
           <div className="group relative w-full cursor-pointer">
-            <input
-              type="file"
-              className="absolute top-0 right-0 h-full w-full cursor-pointer opacity-0"
-              {...props}
-            />
-            <div className={inputSingleFileVariants({ size })}>
-              <Text
-                variant="body-md-regular"
-                className="text-placeholder p-4 text-center"
-              >
-                Nome do arquivo.pdf
-              </Text>
-              <div className="flex h-13 w-14 items-center justify-center rounded-lg bg-green-100">
-                <Icon
-                  svg={CloudArrowUp}
-                  className={inputSingleFileIconVariants({ size })}
+            {!loading ? (
+              <>
+                <input
+                  type="file"
+                  className="absolute top-0 right-0 h-full w-full cursor-pointer opacity-0"
+                  onChange={(e) => {
+                    const files = e.target.files
+                    form.setValue(name, files)
+                  }}
+                  {...props}
                 />
-              </div>
-            </div>
+                <div className={inputSingleFileVariants({ size })}>
+                  <Text
+                    variant="body-md-regular"
+                    className="text-placeholder p-4 text-center"
+                  >
+                    Nome do arquivo.pdf
+                  </Text>
+                  <div className="flex h-13 w-14 items-center justify-center rounded-lg bg-green-100">
+                    <Icon
+                      svg={CloudArrowUp}
+                      className={inputSingleFileIconVariants({ size })}
+                    />
+                  </div>
+                </div>
+              </>
+            ) : (
+              <Skeleton className="flex h-13 w-full items-center justify-center rounded-lg bg-gray-300" />
+            )}
           </div>
           <div className="mt-1 flex flex-col gap-1">
             {formFile && !isValidExtension() && (

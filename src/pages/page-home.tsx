@@ -11,7 +11,7 @@ import useRefunds from "@/contexts/refund/hooks/use-refunds"
 export default function PageHome() {
   const { isLoadingRefunds, refunds } = useRefunds()
 
-  console.log("refunds " + JSON.stringify(refunds))
+  // console.log("refunds " + JSON.stringify(refunds))
 
   return (
     <Container className="flex flex-col gap-6">
