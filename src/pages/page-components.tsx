@@ -27,6 +27,9 @@ import InputSingleFile from "../components/ui/input-single-file"
 
 // 🆕 Importar useForm
 import { useForm } from "react-hook-form"
+import RefundSearch from "../components/ui/refund-search"
+import RefundRow from "@/components/ui/refund-row"
+import Container from "@/components/ui/container"
 
 export default function PageComponents() {
   const selectId = useId()
@@ -40,7 +43,7 @@ export default function PageComponents() {
   })
 
   return (
-    <>
+    <Container className="flex flex-col gap-6">
       <div className="mb-10">
         <label
           htmlFor={selectId}
@@ -131,6 +134,65 @@ export default function PageComponents() {
           {...form.register("file")}
         />
       </div>
-    </>
+
+      <div className="mt-6 mb-2 flex flex-col gap-2">
+        <RefundSearch />
+      </div>
+
+      <div className="mt-6 mb-2 flex flex-col gap-2">
+        <RefundRow
+          refund={{
+            title: "james Dom",
+            category: "food",
+            value: 5500,
+          }}
+        />
+        <RefundRow
+          refund={{
+            title: "james Dom",
+            category: "hosting",
+            value: 5500,
+          }}
+        />
+        <RefundRow
+          refund={{
+            title: "james Dom",
+            category: "transport",
+            value: 5500,
+          }}
+        />
+        <RefundRow
+          refund={{
+            title: "james Dom",
+            category: "services",
+            value: 5500,
+          }}
+        />
+        <RefundRow
+          refund={{
+            title: "james Dom",
+            category: "others",
+            value: 5500,
+          }}
+        />
+      </div>
+
+      <div className="mt-6 mb-2 flex flex-col gap-2">
+        <RefundRow
+          refund={{
+            title: "james Dom",
+            category: "food",
+            value: 5500,
+          }}
+          loading={true}
+        />
+      </div>
+      <div className="mb-2 flex gap-2">
+        <ButtonIcon size="sm" icon={CaretLeft} disabled />
+        <ButtonIcon size="sm" icon={CaretRight} disabled />
+        <ButtonIcon size="sm" icon={CaretLeft} variant="primary" />
+        <ButtonIcon size="sm" icon={CaretRight} variant="primary" />
+      </div>
+    </Container>
   )
 }

@@ -20,10 +20,7 @@
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-hook-form": "^7.71.2",
-<<<<<<< HEAD
-=======
     "react-router": "^7.13.1",
->>>>>>> 69ee4873e3a3c0b4fd9dd219ced08222e3cac4cf
     "tailwind-merge": "^3.5.0",
     "tailwind-variants": "^3.2.2",
     "tailwindcss": "^4.2.1",

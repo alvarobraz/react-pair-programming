@@ -13,6 +13,7 @@ export const buttonIconVariants = tv({
     },
     size: {
       md: "w-12 h-12 p-2 rounded",
+      sm: "w-8 h-8 P-1 rounded-lg",
     },
     disabled: {
       true: "opacity-50 pointer-events-none",
@@ -38,6 +39,7 @@ export const buttonIconIconVariants = tv({
     },
     size: {
       md: "w-6 h-6",
+      sm: "w-4 h-4",
     },
   },
   defaultVariants: {
