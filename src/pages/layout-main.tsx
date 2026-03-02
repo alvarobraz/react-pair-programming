@@ -10,8 +10,9 @@ export default function LayoutMain() {
 
   return (
     <>
+      <MainHeader className="mx-auto mt-9" />
       <div className="flex items-center justify-center">
-        <MainContent size={pathname.includes("refund-details") ? "sm" : "md"}>
+        <MainContent size={pathname.includes("refund") ? "sm" : "md"}>
           <Outlet />
         </MainContent>
       </div>

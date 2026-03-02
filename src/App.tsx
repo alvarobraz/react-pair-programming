@@ -4,6 +4,7 @@ import LayoutMain from "./pages/layout-main"
 import PageHome from "./pages/page-home"
 import PageRefundRequests from "./pages/page-refund-requests"
 import PageRefundDetails from "./pages/page-refund-details"
+import PageRefund from "./pages/page-refund"
 
 export default function App() {
   return (
@@ -12,7 +13,8 @@ export default function App() {
         <Routes>
           <Route element={<LayoutMain />}>
             <Route index element={<PageHome />} />
-            <Route path="/refund-details/:id" element={<PageRefundDetails />} />
+            <Route path="/refund-request/:id" element={<PageRefund />} />
+            <Route path="/refund-request/" element={<PageRefund />} />
             <Route path="/componentes" element={<PageComponents />} />
           </Route>
         </Routes>
