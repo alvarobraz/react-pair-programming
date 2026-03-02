@@ -10,7 +10,7 @@ import Icon from "../components/ui/icon"
 import Button from "../components/ui/button"
 import InputSingleFile from "../components/ui/input-single-file"
 import { useForm } from "react-hook-form"
-import { useId, useState } from "react"
+import { useId, useState, useTransition } from "react"
 import DeleteConfirmDialog from "../contexts/components/delete-confirm-dialog"
 import useRefund from "@/contexts/refund/hooks/use-refund"
 import useReceipt from "../contexts/receipts/hooks/use-receipt"
@@ -25,7 +25,7 @@ import { SelectTrigger } from "@radix-ui/react-select"
 
 export default function PageRefund() {
   const { id } = useParams()
-  const { isLoadingRefund, refund } = useRefund(id)
+  const { isLoadingRefund, refund, deleteRefund } = useRefund(id)
   const { receipt } = useReceipt(refund?.receipt?.id)
 
   console.log("refund =>" + JSON.stringify(refund))
@@ -47,10 +47,13 @@ export default function PageRefund() {
   const selectId = useId()
 
   const [open, setOpen] = useState(false)
-  const [success, setSuccess] = useState(true)
+  const [success, setSuccess] = useState(false)
+  const [isDeletingRefund, setIsDeletingRefund] = useTransition()
 
   const handleDelete = () => {
-    console.log("Item excluído!")
+    setIsDeletingRefund(async () => {
+      await deleteRefund(refund?.id || "")
+    })
   }
 
   return (
@@ -162,7 +165,9 @@ export default function PageRefund() {
       )}
 
       {id !== undefined ? (
-        <Button onClick={() => setOpen(true)}>Excluir</Button>
+        <Button onClick={() => setOpen(true)}>
+          {isDeletingRefund ? "Excluindo..." : "Excluir"}
+        </Button>
       ) : (
         <Button onClick={() => setSuccess(false)}>Nova solicitação</Button>
       )}
