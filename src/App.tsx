@@ -2,23 +2,26 @@ import { BrowserRouter, Routes, Route } from "react-router"
 import PageComponents from "./pages/page-components"
 import LayoutMain from "./pages/layout-main"
 import PageHome from "./pages/page-home"
-import PageRefundRequests from "./pages/page-refund-requests"
-import PageRefundDetails from "./pages/page-refund-details"
 import PageRefund from "./pages/page-refund"
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+
+const queryClient = new QueryClient()
 
 export default function App() {
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route element={<LayoutMain />}>
-            <Route index element={<PageHome />} />
-            <Route path="/refund-request/:id" element={<PageRefund />} />
-            <Route path="/refund-request/" element={<PageRefund />} />
-            <Route path="/componentes" element={<PageComponents />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      <QueryClientProvider client={queryClient}>
+        <BrowserRouter>
+          <Routes>
+            <Route element={<LayoutMain />}>
+              <Route index element={<PageHome />} />
+              <Route path="/refund-request/:id" element={<PageRefund />} />
+              <Route path="/refund-request/" element={<PageRefund />} />
+              <Route path="/componentes" element={<PageComponents />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </QueryClientProvider>
     </>
   )
 }
