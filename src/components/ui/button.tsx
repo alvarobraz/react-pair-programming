@@ -3,7 +3,7 @@ import Text from "./text"
 import { tv, type VariantProps } from "tailwind-variants"
 
 export const buttonVariants = tv({
-  base: "flex items-center justify-center cursor-pointer transition rounded group gap-1",
+  base: "flex items-center justify-center cursor-pointer transition rounded-lg group gap-1",
   variants: {
     variant: {
       primary: "bg-green-100  hover:bg-green-200",
@@ -29,7 +29,7 @@ export const buttonVariants = tv({
 export const buttonTextVariants = tv({
   variants: {
     variant: {
-      primary: "body-md-regular text-white",
+      primary: "font-bold text-white",
     },
     size: {
       sm: "text-sm",
@@ -41,24 +41,24 @@ export const buttonTextVariants = tv({
   },
 })
 
-export const buttonIconVariants = tv({
-  variants: {
-    variant: {
-      primary: "fill-label-inverse",
-    },
-    size: {
-      sm: "w-4 h-4",
-      md: "w-6 h-6",
-    },
-    handling: {
-      true: "w-4 h-4",
-    },
-  },
-  defaultVariants: {
-    variant: "primary",
-    size: "md",
-  },
-})
+// export const buttonIconVariants = tv({
+//   variants: {
+//     variant: {
+//       primary: "fill-label-inverse",
+//     },
+//     size: {
+//       sm: "w-4 h-4",
+//       md: "w-6 h-6",
+//     },
+//     handling: {
+//       true: "w-4 h-4",
+//     },
+//   },
+//   defaultVariants: {
+//     variant: "primary",
+//     size: "md",
+//   },
+// })
 
 interface ButtonProps
   extends
